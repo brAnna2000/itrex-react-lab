@@ -18,7 +18,7 @@ class DataList extends React.Component {
             Sort(this.props, this.props.find.find_data.slice(this.props.pagination.indexOfFirst, this.props.pagination.indexOfLast)) :
             Sort(this.props, this.props.info.data.slice(this.props.pagination.indexOfFirst, this.props.pagination.indexOfLast))
         return (
-            <div style={{padding:'5px'}}>
+            <div style={{padding:'5px', display: 'flex'}}>
                 <div style={{border:'1px', display:'flex', alignItems:'baseline', minWidth:'690px'}}>
                     <Column title={titles.id} data={data.map(x => x.id)} keys={data.map(x => x.id)} />
                     <Column title={titles.firstName} data={data.map(x => x.firstName)} keys={data.map(x => x.id)} />
