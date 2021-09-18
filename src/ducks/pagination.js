@@ -25,7 +25,7 @@ export const firstPage = () => (dispatch) => {
 export const lastPage = () => (dispatch, getState) => {
     let props = getState()
     let data = ''
-    Boolean(props.find.find_data.length) ? data = props.find.find_data : data = props.cars.data
+    Boolean(props.find.find_data.length) ? data = props.find.find_data : data = props.info.data
     const lastPage = Math.ceil(data.length / props.pagination.pageLimit)
     dispatch({
         type: LAST_PAGE,

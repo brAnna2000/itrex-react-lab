@@ -1,5 +1,5 @@
 import { GET_DATA } from './actions';
-import { getData } from '../ducks/cars';
+import { getData } from '../ducks/info';
 
 export const getDataMiddleware = store => next => action => {
     if (action.type === GET_DATA) {

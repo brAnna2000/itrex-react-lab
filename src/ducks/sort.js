@@ -1,66 +1,66 @@
 // ACTIONS
-export const SORT_ASC_YEAR_COLUMN = 'SORT_ASC_YEAR_COLUMN';
-export const SORT_ASC_PRICE_COLUMN = 'SORT_ASC_PRICE_COLUMN';
-export const SORT_ASC_POWER_COLUMN = 'SORT_ASC_POWER_COLUMN';
-export const SORT_ASC_MAKE_COLUMN = 'SORT_ASC_MAKE_COLUMN';
-export const SORT_ASC_MODEL_COLUMN = 'SORT_ASC_MODEL_COLUMN';
+export const SORT_ASC_EMAIL_COLUMN = 'SORT_ASC_EMAIL_COLUMN';
+export const SORT_ASC_STATE_COLUMN = 'SORT_ASC_STATE_COLUMN';
+export const SORT_ASC_PHONE_COLUMN = 'SORT_ASC_PHONE_COLUMN';
+export const SORT_ASC_FIRSTNAME_COLUMN = 'SORT_ASC_FIRSTNAME_COLUMN';
+export const SORT_ASC_LASTNAME_COLUMN = 'SORT_ASC_LASTNAME_COLUMN';
 
-export const SORT_DESC_YEAR_COLUMN = 'SORT_DESC_YEAR_COLUMN';
-export const SORT_DESC_PRICE_COLUMN = 'SORT_DESC_PRICE_COLUMN';
-export const SORT_DESC_POWER_COLUMN = 'SORT_DESC_POWER_COLUMN';
-export const SORT_DESC_MAKE_COLUMN = 'SORT_DESC_MAKE_COLUMN';
-export const SORT_DESC_MODEL_COLUMN = 'SORT_DESC_MODEL_COLUMN';
+export const SORT_DESC_EMAIL_COLUMN = 'SORT_DESC_EMAIL_COLUMN';
+export const SORT_DESC_STATE_COLUMN = 'SORT_DESC_STATE_COLUMN';
+export const SORT_DESC_PHONE_COLUMN = 'SORT_DESC_PHONE_COLUMN';
+export const SORT_DESC_FIRSTNAME_COLUMN = 'SORT_DESC_FIRSTNAME_COLUMN';
+export const SORT_DESC_LASTNAME_COLUMN = 'SORT_DESC_LASTNAME_COLUMN';
 
 
 // ACTION CREATORS/MIDDLEWARES
-export const sortAscYearColumn = () => (dispatch) => {
+export const sortAscEmailColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_ASC_YEAR_COLUMN,
+        type: SORT_ASC_EMAIL_COLUMN,
     });
 }
-export const sortAscPriceColumn = () => (dispatch) => {
+export const sortAscStateColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_ASC_PRICE_COLUMN,
+        type: SORT_ASC_STATE_COLUMN,
     });
 }
-export const sortAscPowerColumn = () => (dispatch) => {
+export const sortAscPhoneColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_ASC_POWER_COLUMN,
+        type: SORT_ASC_PHONE_COLUMN,
     });
 }
-export const sortAscMakeColumn = () => (dispatch) => {
+export const sortAscFirstNameColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_ASC_MAKE_COLUMN,
+        type: SORT_ASC_FIRSTNAME_COLUMN,
     });
 }
-export const sortAscModelColumn = () => (dispatch) => {
+export const sortAscLastNameColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_ASC_MODEL_COLUMN,
+        type: SORT_ASC_LASTNAME_COLUMN,
     });
 }
-export const sortDescYearColumn = () => (dispatch) => {
+export const sortDescEmailColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_DESC_YEAR_COLUMN,
+        type: SORT_DESC_EMAIL_COLUMN,
     });
 }
-export const sortDescPriceColumn = () => (dispatch) => {
+export const sortDescStateColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_DESC_PRICE_COLUMN,
+        type: SORT_DESC_STATE_COLUMN,
     });
 }
-export const sortDescPowerColumn = () => (dispatch) => {
+export const sortDescPhoneColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_DESC_POWER_COLUMN,
+        type: SORT_DESC_PHONE_COLUMN,
     });
 }
-export const sortDescMakeColumn = () => (dispatch) => {
+export const sortDescFirstNameColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_DESC_MAKE_COLUMN,
+        type: SORT_DESC_FIRSTNAME_COLUMN,
     });
 }
-export const sortDescModelColumn = () => (dispatch) => {
+export const sortDescLastNameColumn = () => (dispatch) => {
     dispatch({
-        type: SORT_DESC_MODEL_COLUMN,
+        type: SORT_DESC_LASTNAME_COLUMN,
     });
 }
 
@@ -96,7 +96,7 @@ export const initialSortState = {
 // REDUCER
 export const SortReducer = (state = initialSortState, action) => {
     switch (action.type) {
-        case SORT_ASC_YEAR_COLUMN:
+        case SORT_ASC_EMAIL_COLUMN:
             return {
                 ...initialSortState,
                 email: {
@@ -104,7 +104,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: false
                 },
             }
-        case SORT_ASC_PRICE_COLUMN:
+        case SORT_ASC_STATE_COLUMN:
             return {
                 ...initialSortState,
                 state: {
@@ -112,7 +112,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: false
                 },
             }
-        case SORT_ASC_POWER_COLUMN:
+        case SORT_ASC_PHONE_COLUMN:
             return {
                 ...initialSortState,
                 phone: {
@@ -120,7 +120,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: false
                 },
             }
-        case SORT_ASC_MAKE_COLUMN:
+        case SORT_ASC_FIRSTNAME_COLUMN:
             return {
                 ...initialSortState,
                 firstName: {
@@ -128,7 +128,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: false
                 },
             }
-        case SORT_ASC_MODEL_COLUMN:
+        case SORT_ASC_LASTNAME_COLUMN:
             return {
                 ...initialSortState,
                 lastName: {
@@ -136,7 +136,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: false
                 },
             }
-        case SORT_DESC_YEAR_COLUMN:
+        case SORT_DESC_EMAIL_COLUMN:
             return {
                 ...initialSortState,
                 email: {
@@ -144,7 +144,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: true
                 },
             }
-        case SORT_DESC_PRICE_COLUMN:
+        case SORT_DESC_STATE_COLUMN:
             return {
                 ...initialSortState,
                 state: {
@@ -152,7 +152,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: true
                 },
             }
-        case SORT_DESC_POWER_COLUMN:
+        case SORT_DESC_PHONE_COLUMN:
             return {
                 ...initialSortState,
                 phone: {
@@ -160,7 +160,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: true
                 },
             }
-        case SORT_DESC_MAKE_COLUMN:
+        case SORT_DESC_FIRSTNAME_COLUMN:
             return {
                 ...initialSortState,
                 firstName: {
@@ -168,7 +168,7 @@ export const SortReducer = (state = initialSortState, action) => {
                     descending: true
                 },
             }
-        case SORT_DESC_MODEL_COLUMN:
+        case SORT_DESC_LASTNAME_COLUMN:
             return {
                 ...initialSortState,
                 lastName: {

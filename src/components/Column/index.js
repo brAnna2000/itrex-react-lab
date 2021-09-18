@@ -1,39 +1,51 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import {
-    sortAscYearColumn, sortAscPriceColumn, sortAscPowerColumn, sortAscMakeColumn, sortAscModelColumn,
-    sortDescYearColumn, sortDescPriceColumn, sortDescPowerColumn, sortDescMakeColumn, sortDescModelColumn,
+    sortAscEmailColumn, sortAscStateColumn, sortAscPhoneColumn, sortAscFirstNameColumn, sortAscLastNameColumn,
+    sortDescEmailColumn, sortDescStateColumn, sortDescPhoneColumn, sortDescFirstNameColumn, sortDescLastNameColumn,
 } from '../../ducks/sort'
 import { titles } from '../DataList/config';
 import { Grid, Box, IconButton } from '@material-ui/core';
 
+let text = {
+    idText: '', 
+    firstNameText: '', 
+    lastNameText: '', 
+    descriptionText: '', 
+    streetAddressText: '', 
+    cityText: '', 
+    stateText: '', 
+    zipText: ''
+};
 const Column = (props) => {
     const column_sort = () => {
         switch (props.title) {
             case titles.email:
-                return [props.sortAscYearColumn, props.sortDescYearColumn]
+                return [props.sortAscEmailColumn, props.sortDescEmailColumn]
             case titles.state:
-                return [props.sortAscPriceColumn, props.sortDescPriceColumn]
+                return [props.sortAscStateColumn, props.sortDescStateColumn]
             case titles.phone:
-                return [props.sortAscPowerColumn, props.sortDescPowerColumn]
+                return [props.sortAscPhoneColumn, props.sortDescPhoneColumn]
             case titles.firstName:
-                return [props.sortAscMakeColumn, props.sortDescMakeColumn]
+                return [props.sortAscFirstNameColumn, props.sortDescFirstNameColumn]
             case titles.lastName:
-                return [props.sortAscModelColumn, props.sortDescModelColumn]
+                return [props.sortAscLastNameColumn, props.sortDescLastNameColumn]
             default:
                 break;
         }
     }
+    
     const display = (i) => {
-        const idText = props.cars.data[i].id;
-        const firstNameText = props.cars.data[i].firstName;
-        const lastNameText = props.cars.data[i].lastName;
-        const descriptionText = props.cars.data[i].description;
-        const streetAddressText = props.cars.data[i].adress.streetAddress;
-        const cityText = props.cars.data[i].adress.city;
-        const stateText = props.cars.data[i].adress.state;
-        const zipText = props.cars.data[i].adress.zip;
-        
-        return text = {
+        const idText = props.info.data[i].id;
+        const firstNameText = props.info.data[i].firstName;
+        const lastNameText = props.info.data[i].lastName;
+        const descriptionText = props.info.data[i].description;
+        const streetAddressText = props.info.data[i].adress.streetAddress;
+        const cityText = props.info.data[i].adress.city;
+        const stateText = props.info.data[i].adress.state;
+        const zipText = props.info.data[i].adress.zip;
+
+        let textDublicate = {
             idText: idText, 
             firstNameText: firstNameText, 
             lastNameText: lastNameText, 
@@ -43,10 +55,38 @@ const Column = (props) => {
             stateText: stateText, 
             zipText: zipText
         };
-        // alert(props.cars.data[i].id + ' ' + props.cars.data[i].firstName + ' ' + props.cars.data[i].lastName + ' ' + props.cars.data[i].description + ' ' + props.cars.data[i].adress.streetAddress + ' ' + props.cars.data[i].adress.city + ' ' + props.cars.data[i].adress.state + ' ' + props.cars.data[i].adress.zip)
+        for (let key in text) {
+            text[key] = textDublicate[key];
+        }
+
     }
-    export const text;
+console.log(props)
     return (
+    //     <table style={{justify:"center", border: '1px', borderColor:'black', width:'100%', height:'40px', 
+    //     display:'flex', justifyContent:'center', alignItems:'center'}}>
+    //     <thead>
+    //         <tr>
+    //             {props.title !== 'id' ?
+    //                 <td style={{margin:'0  5px 0 10px', display:'flex'}}>{props.title}
+    //                 <button style={{size:'small', fontSize: '10px', backgroundColor: 'white', borderWidth: '0' }} onClick={column_sort()[0]}><i></i>⋀</button>
+    //                 <button style={{size:'small', fontSize: '10px', backgroundColor: 'white', borderWidth: '0' }} onClick={column_sort()[1]}><i></i>⋁</button>
+    //                 </td>
+    //                 : <td>{props.title}</td>
+    //             }
+    //         </tr>
+    //     </thead>
+    //     <tbody>
+    //             {props.data.map((x, i) =>
+    //                 <tr style={{border:'1px', width:'100%', height:'35px', padding:'5px 0', display:'flex', 
+    //                 justifyContent:'center', alignItems:'center', textAlign:'center'}} key={props.keys[i]} onClick={function() {display(i)}}>
+    //                     <td>{x}</td>
+    //                 </tr>)}
+    //         {for(key in prop){
+
+    //         }}
+    //     </tbody>
+    // </table>
+
         <Grid
             container
             direction="column"
@@ -103,22 +143,24 @@ const Column = (props) => {
         </Grid>
     )
 }
+
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
 
-    sortAscYearColumn: () => dispatch(sortAscYearColumn()),
-    sortAscPriceColumn: () => dispatch(sortAscPriceColumn()),
-    sortAscPowerColumn: () => dispatch(sortAscPowerColumn()),
-    sortAscMakeColumn: () => dispatch(sortAscMakeColumn()),
-    sortAscModelColumn: () => dispatch(sortAscModelColumn()),
+    sortAscEmailColumn: () => dispatch(sortAscEmailColumn()),
+    sortAscStateColumn: () => dispatch(sortAscStateColumn()),
+    sortAscPhoneColumn: () => dispatch(sortAscPhoneColumn()),
+    sortAscFirstNameColumn: () => dispatch(sortAscFirstNameColumn()),
+    sortAscLastNameColumn: () => dispatch(sortAscLastNameColumn()),
 
-    sortDescYearColumn: () => dispatch(sortDescYearColumn()),
-    sortDescPriceColumn: () => dispatch(sortDescPriceColumn()),
-    sortDescPowerColumn: () => dispatch(sortDescPowerColumn()),
-    sortDescMakeColumn: () => dispatch(sortDescMakeColumn()),
-    sortDescModelColumn: () => dispatch(sortDescModelColumn())
+    sortDescEmailColumn: () => dispatch(sortDescEmailColumn()),
+    sortDescStateColumn: () => dispatch(sortDescStateColumn()),
+    sortDescPhoneColumn: () => dispatch(sortDescPhoneColumn()),
+    sortDescFirstNameColumn: () => dispatch(sortDescFirstNameColumn()),
+    sortDescLastNameColumn: () => dispatch(sortDescLastNameColumn())
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Column);
 
+export {text};
+export default connect(mapStateToProps, mapDispatchToProps)(Column);

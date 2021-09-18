@@ -1,50 +1,24 @@
 import { connect } from 'react-redux'
 import { leftPage, rightPage, firstPage, lastPage } from '../../ducks/pagination';
-import { Box, IconButton } from '@material-ui/core';
 
 const Pagination = (props) => {
-    const data = Boolean(props.find.find_data.length) ? props.find.find_data : props.cars.data
+    const data = Boolean(props.find.find_data.length) ? props.find.find_data : props.info.data
     const lastPage = Math.ceil(data.length / props.pagination.pageLimit)
 
     return (
-        <Box
-            marginTop='5px'
-            textAlign='center'>
-            <>
-                <IconButton
-                    size='small'
-                    onClick={props.leftPage}
-                    disabled={props.pagination.currentPage === 1 ? true : false} >
-                    ≪
-            </IconButton>
-                <IconButton
-                    size='small'
-                    onClick={props.firstPage}>{1}
-                </IconButton>
-                {
-                    props.pagination.currentPage === 1 || props.pagination.currentPage === lastPage ||
-                    <IconButton
-                        size='small'
-                        disabled>
-                        {props.pagination.currentPage}
-                    </IconButton>
-                }
-                {
-                    lastPage === 1 ||
-                    <IconButton
-                        size='small'
-                        onClick={props.lastPage}>
-                        {lastPage}
-                    </IconButton>
-                }
-                <IconButton
-                    size='small'
-                    onClick={props.rightPage}
-                    disabled={props.pagination.currentPage === lastPage ? true : false}>
-                    ≫
-                 </IconButton>
-            </>
-        </Box>
+        <div style={{marginTop:'5px', textAlign:'center'}}>
+            <button style={{size:'small', backgroundColor: 'white', borderWidth: '0' }} onClick={props.leftPage} disabled={props.pagination.currentPage === 1 ? true : false}><i></i>≪</button>
+            <button style={{size:'small', backgroundColor: 'white', borderWidth: '0'}} onClick={props.firstPage}>{1}</button>
+            {
+                props.pagination.currentPage === 1 || props.pagination.currentPage === lastPage ||
+                <button style={{size:'small', backgroundColor: 'white', borderWidth: '0'}} disabled>{props.pagination.currentPage}</button>
+            }
+            {
+                lastPage === 1 ||
+                <button style={{size:'small', backgroundColor: 'white', borderWidth: '0'}} onClick={props.lastPage}>{lastPage}</button>
+            }
+            <button style={{size:'small', backgroundColor: 'white', borderWidth: '0'}} onClick={props.rightPage} disabled={props.pagination.currentPage === lastPage ? true : false}><i></i>≫</button>
+        </div>
     )
 }
 

@@ -5,7 +5,7 @@ export const FIND_DATA = 'FIND_DATA';
 // ACTION CREATORS/MIDDLEWARES
 export const findData = (find_request) => (dispatch, getState) => {
 
-    const find_data = getState().cars.data.filter((obj) => {
+    const find_data = getState().info.data.filter((obj) => {
         let flag = false;
         Object.values(obj).forEach((val) => {
             if ((String(val).indexOf(find_request) > -1) && (String(val).indexOf('http') === -1)) {
